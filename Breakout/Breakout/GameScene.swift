@@ -19,6 +19,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    
+    
     override func didMove(to view: SKView) {
         ball = self.childNode(withName: "Ball") as! SKSpriteNode;
         paddle = self.childNode(withName: "Paddle") as! SKSpriteNode;
@@ -51,7 +53,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bodyAName = contact.bodyA.node?.name
         let bodyBName = contact.bodyB.node?.name
         
-        if bodyAName == "Ball" && bodyBName == "Brick3" || bodyAName == "Brick3" && bodyBName == "Ball" || bodyAName == "Ball" && bodyBName == "Brick2" || bodyAName == "Brick2" && bodyBName == "Ball" || bodyAName == "Ball" && bodyBName == "Brick1" || bodyAName == "Brick1" && bodyBName == "Ball"{
+        if bodyAName == "Ball" && bodyBName == "Brick3" || bodyAName == "Brick3" && bodyBName == "Ball"
+            || bodyAName == "Ball" && bodyBName == "Brick2" || bodyAName == "Brick2" && bodyBName == "Ball"
+            || bodyAName == "Ball" && bodyBName == "Brick1" || bodyAName == "Brick1" && bodyBName == "Ball"{
             if bodyAName == "Brick3" {
                 contact.bodyA.node?.removeFromParent()
                 score += 3
