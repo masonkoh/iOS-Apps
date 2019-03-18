@@ -40,7 +40,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="2Am-04-YTX">
                     <connections>
-                        <action selector="mySwipeHandler:" destination="BYZ-38-t0r" id="PLG-t8-2Pb"/>
+                        <action selector="mySwipeToRightHandler:" destination="BYZ-38-t0r" id="PLG-t8-2Pb"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
