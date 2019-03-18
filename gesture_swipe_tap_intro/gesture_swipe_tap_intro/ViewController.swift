@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    
+    @IBAction func mySwipeHandler(_ sender: Any) {
+        let randomNo : Int = Int(arc4random() % 100)
+        print("image swiped - " + String(randomNo))
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
