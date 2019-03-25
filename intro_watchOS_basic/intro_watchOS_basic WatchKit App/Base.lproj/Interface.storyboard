@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="intro_watchOS_basic_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="No Notifications" id="zH6-Xd-JDg"/>
+                        <button width="1" alignment="center" verticalAlignment="center" title="CLICK ME" id="iWh-qq-4Ag">
+                            <connections>
+                                <action selector="clickHandler" destination="AgC-eL-Hgc" id="ecw-zM-4Ce"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <menu key="menu" id="O9t-mI-nUu">
+                        <items>
+                            <menuItem title="Store" icon="add" id="Nfx-CU-UgE">
+                                <connections>
+                                    <action selector="storeHandler" destination="AgC-eL-Hgc" id="1mw-d0-MpX"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Retrieve" icon="info" id="YOr-3D-oxB">
+                                <connections>
+                                    <action selector="retrieveHandler" destination="AgC-eL-Hgc" id="PCB-7D-fcW"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Play" icon="play" id="Moi-Uj-GLx">
+                                <connections>
+                                    <action selector="playHandler" destination="AgC-eL-Hgc" id="djK-RT-UIu"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="clickButton" destination="iWh-qq-4Ag" id="i42-Cy-CBj"/>
+                        <outlet property="lbl" destination="zH6-Xd-JDg" id="mAp-i2-g4r"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="intro_watchOS_basic_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="intro_watchOS_basic_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+</document>
