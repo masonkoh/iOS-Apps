@@ -13,6 +13,8 @@
 		04BA5E40225A405E00CE169B /* Standford_developing_iOS11_Apps_with_Swift___1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BA5E3E225A405E00CE169B /* Standford_developing_iOS11_Apps_with_Swift___1.xcdatamodeld */; };
 		04BA5E42225A405F00CE169B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BA5E41225A405F00CE169B /* Assets.xcassets */; };
 		04BA5E45225A405F00CE169B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BA5E43225A405F00CE169B /* LaunchScreen.storyboard */; };
+		04CAF3F8225A9D0D00118418 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAF3F7225A9D0D00118418 /* Concentration.swift */; };
+		04CAF3FA225A9E3400118418 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAF3F9225A9E3400118418 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		04BA5E41225A405F00CE169B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BA5E44225A405F00CE169B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04BA5E46225A405F00CE169B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CAF3F7225A9D0D00118418 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		04CAF3F9225A9E3400118418 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +60,14 @@
 		04BA5E36225A405E00CE169B /* Standford-developing iOS11 Apps with Swift - 1 */ = {
 			isa = PBXGroup;
 			children = (
-				04BA5E37225A405E00CE169B /* AppDelegate.swift */,
 				04BA5E39225A405E00CE169B /* ViewController.swift */,
 				04BA5E3B225A405E00CE169B /* Main.storyboard */,
+				04CAF3F7225A9D0D00118418 /* Concentration.swift */,
+				04CAF3F9225A9E3400118418 /* Card.swift */,
+				04BA5E46225A405F00CE169B /* Info.plist */,
+				04BA5E37225A405E00CE169B /* AppDelegate.swift */,
 				04BA5E41225A405F00CE169B /* Assets.xcassets */,
 				04BA5E43225A405F00CE169B /* LaunchScreen.storyboard */,
-				04BA5E46225A405F00CE169B /* Info.plist */,
 				04BA5E3E225A405E00CE169B /* Standford_developing_iOS11_Apps_with_Swift___1.xcdatamodeld */,
 			);
 			path = "Standford-developing iOS11 Apps with Swift - 1";
@@ -139,6 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BA5E3A225A405E00CE169B /* ViewController.swift in Sources */,
+				04CAF3F8225A9D0D00118418 /* Concentration.swift in Sources */,
+				04CAF3FA225A9E3400118418 /* Card.swift in Sources */,
 				04BA5E40225A405E00CE169B /* Standford_developing_iOS11_Apps_with_Swift___1.xcdatamodeld in Sources */,
 				04BA5E38225A405E00CE169B /* AppDelegate.swift in Sources */,
 			);
