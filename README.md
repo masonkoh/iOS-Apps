@@ -1,2 +1,4 @@
 # swift-for-iOS
-Introduction of Swift for iOS development
+Swift for iOS
+
+(Game)Spaceship Gun Fight: 2D Game using SprikeKit
