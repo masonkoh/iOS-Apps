@@ -16,3 +16,12 @@
   
 ### Apple Watch Apps (watchOS)
 * intro_watchOS_basic	              : Intro to Apple watchOS <br>
+
+
+
+
+## Requirements
+|App Name|description|note|
+|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+0.11.0+|8.0+|10.11+|10.2+|10.0+|5.0|1.5.0+|0.29.0+|
+|0.10.0+|8.0+|10.11+|10.2+|10.0+|4.2|1.5.0+|0.29.0+|
