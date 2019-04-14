@@ -1,5 +1,5 @@
 # swift-for-iOS
-iOS Apps made in Swift
+iOS Apps made in Swift <br>
 Language used: 
   - Swift 4.2, 5.0
 note: 
