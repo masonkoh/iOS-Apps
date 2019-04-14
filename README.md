@@ -6,14 +6,14 @@
 
 ### iOS
 |Name|Description|Note|
-|-|:----:|:----:|
+|----|:----:|:----:|
 memoApp|iOS productive app||
 |gesture_swipe_tap_intro|gesture portfolio (temp)||
 
   
 ### Games
 |Name|Description|Note|
-|:-------:|:----:|:----:|
+|----|:----:|:----:|
 Spaceship Gun Fight|2D Game using SprikeKit||
 |Breakout|2D Game using SprikeKit||
 ColorSwitch|2D Game using SprikeKit||
@@ -22,7 +22,7 @@ ColorSwitch|2D Game using SprikeKit||
   
 ### Apple Watch Apps (watchOS)
 |Name|Description|Note|
-|:----:|:----:|:----:|
+|----|:----:|:----:|
 intro_watchOS_basic|Intro to Apple watchOS|watchOS|
 
 
