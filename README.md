@@ -1,4 +1,4 @@
-# swift-for-iOS (iOS Apps made in Swift)
+# iOS-Apps (iOS Apps made in Swift)
 
 ![Platform](https://img.shields.io/badge/platform-iOS-silver.svg)
 ![Language](https://img.shields.io/badge/language-Swift%204.2%20and%20%2B-orange.svg)
