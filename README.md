@@ -1,13 +1,7 @@
 # swift-for-iOS (iOS Apps made in Swift)
 
-[![asdf](https://img.shields.io/badge/platform-iOS-silver.svg)
-!(https://img.shields.io/badge/language-Swift%204.2%2B-orange.svg)
-]
-
-[![Platform](https://img.shields.io/cocoapods/p/HaishinKit.svg?style=flat)](http://cocoapods.org/pods/HaishinKit)
-![Language](https://img.shields.io/badge/language-Swift%204.0-orange.svg)
-[![CocoaPods](https://img.shields.io/cocoapods/v/HaishinKit.svg?style=flat)](http://cocoapods.org/pods/HaishinKit)
-[![GitHub license](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://raw.githubusercontent.com/shogo4405/HaishinKit.swift/master/LICENSE.md)
+![Platform](https://img.shields.io/badge/platform-iOS-silver.svg)
+![Language](https://img.shields.io/badge/language-Swift%204.2%2B-orange.svg)
 
 * Swift 4.2, 5.0
 * most apps are designed only for iPhone 7 and up
