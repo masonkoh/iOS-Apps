@@ -13,7 +13,7 @@ memoApp|iOS productive app||
   
 ### Games
 |Name|Description|Note|
-|:----:|:----:|:----:|
+|:-------:|:----:|:----:|
 Spaceship Gun Fight|2D Game using SprikeKit||
 |Breakout|2D Game using SprikeKit||
 ColorSwitch|2D Game using SprikeKit||
