@@ -5,10 +5,8 @@
 ![designedFor](https://img.shields.io/badge/designed%20for-iPhone%20X%20and%20%2B-green.svg)
 
 ### iOS
-* gesture_swipe_tap_intro
-gesture portfolio (temp)
-* memoApp
-iOS productive app <br>
+* gesture_swipe_tap_intro (gesture portfolio (temp))
+* memoApp (iOS productive app <br>)
   
 ### Games
 * Spaceship Gun Fight               : 2D Game using SprikeKit <br>
