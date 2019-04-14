@@ -1,6 +1,7 @@
 # swift-for-iOS (iOS Apps made in Swift)
 
 [![asdf](https://img.shields.io/badge/platform-iOS-silver.svg)
+]
 
 [![Platform](https://img.shields.io/cocoapods/p/HaishinKit.svg?style=flat)](http://cocoapods.org/pods/HaishinKit)
 ![Language](https://img.shields.io/badge/language-Swift%204.0-orange.svg)
