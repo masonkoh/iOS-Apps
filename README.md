@@ -1,7 +1,7 @@
 # swift-for-iOS
 iOS Apps made in Swift <br>
 Language used:  <br>
-  - Swift 4.2, 5.0 <br>
+  - Swift 4.2, 5.0
 note: 
   - most apps are designed only for iPhone 7 and up
 
