@@ -2,9 +2,7 @@
 
 ![Platform](https://img.shields.io/badge/platform-iOS-silver.svg)
 ![Language](https://img.shields.io/badge/language-Swift%204.2%2B-orange.svg)
-
-* Swift 4.2, 5.0
-* most apps are designed only for iPhone 7 and up
+https://img.shields.io/badge/design%20for-iPhone6%20and%20%2B-green.svg
 
 ### iOS
 * (iOS Basic)gesture_swipe_tap_intro: iOS Basic Skill <br>
