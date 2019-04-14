@@ -21,7 +21,7 @@
 
 
 ## Requirements
-|App Name|description|note|
+|Name|Description|Note|
 |:----:|:----:|:----:|
-0.11.0+|8.0+|10.11+|
-|0.10.0+|8.0+|10.11+|
+memoApp|iOS productive app||
+|gesture_swipe_tap_intro|gesture portfolio (temp)||
