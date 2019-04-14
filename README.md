@@ -6,9 +6,9 @@
 
 ### iOS
 * gesture_swipe_tap_intro
-** gesture portfolio (temp)
+gesture portfolio (temp)
 * memoApp
-** iOS productive app <br>
+iOS productive app <br>
   
 ### Games
 * Spaceship Gun Fight               : 2D Game using SprikeKit <br>
