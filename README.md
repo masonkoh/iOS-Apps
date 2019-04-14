@@ -4,14 +4,14 @@
 ![Language](https://img.shields.io/badge/language-Swift%204.2%20and%20%2B-orange.svg)
 ![designedFor](https://img.shields.io/badge/designed%20for-iPhone%20X%20and%20%2B-green.svg)
 
-### iOS
+### iPhone Apps
 |Name|Description|Note|
 |----|----|----|
 memoApp|iOS productive app||
 |gesture_swipe_tap_intro|gesture portfolio (temp)||
 
   
-### Games
+### iPhone Game Apps
 |Name|Description|Note|
 |----|----|----|
 Spaceship Gun Fight|2D Game using SprikeKit||
