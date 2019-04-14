@@ -1,13 +1,13 @@
 # swift-for-iOS
-iOS Apps made in Swift <br>
+##iOS Apps made in Swift <br>
 Language used:  
-  - Swift 4.2, 5.0
+	Swift 4.2, 5.0
 Note: 
-  - most apps are designed only for iPhone 7 and up
+	most apps are designed only for iPhone 7 and up
 
-iOS
-  - (iOS Basic)gesture_swipe_tap_intro: iOS Basic Skill <br>
-  - (iOS productive)memoApp           : iOS productive app <br>
+##iOS
+* (iOS Basic)gesture_swipe_tap_intro: iOS Basic Skill <br>
+* (iOS productive)memoApp           : iOS productive app <br>
   
 Games
   - Spaceship Gun Fight               : 2D Game using SprikeKit <br>
