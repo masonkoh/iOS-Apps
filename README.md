@@ -21,6 +21,8 @@ ColorSwitch|2D Game using SprikeKit||
 
   
 ### Apple Watch Apps (watchOS)
-* intro_watchOS_basic	              : Intro to Apple watchOS <br>
+|Name|Description|Note|
+|:----:|:----:|:----:|
+intro_watchOS_basic|Intro to Apple watchOS|watchOS|
 
 
