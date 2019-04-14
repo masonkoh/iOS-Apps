@@ -5,23 +5,22 @@
 ![designedFor](https://img.shields.io/badge/designed%20for-iPhone%20X%20and%20%2B-green.svg)
 
 ### iOS
-* gesture_swipe_tap_intro (gesture portfolio (temp))
-* memoApp (iOS productive app <br>)
+|Name|Description|Note|
+|:----:|:----:|:----:|
+memoApp|iOS productive app||
+|gesture_swipe_tap_intro|gesture portfolio (temp)||
+
   
 ### Games
-* Spaceship Gun Fight               : 2D Game using SprikeKit <br>
-* Breakout                          : 2D Game using SprikeKit <br>
-* ColorSwitch	                      : 2D Game using SprikeKit <br>
-* GuessMyPick	                      : 2D Game using SprikeKit <br>
+|Name|Description|Note|
+|:----:|:----:|:----:|
+Spaceship Gun Fight|2D Game using SprikeKit||
+|Breakout|2D Game using SprikeKit||
+ColorSwitch|2D Game using SprikeKit||
+|GuessMyPick|2D Game using SprikeKit||
+
   
 ### Apple Watch Apps (watchOS)
 * intro_watchOS_basic	              : Intro to Apple watchOS <br>
 
 
-
-
-## Requirements
-|Name|Description|Note|
-|:----:|:----:|:----:|
-memoApp|iOS productive app||
-|gesture_swipe_tap_intro|gesture portfolio (temp)||
