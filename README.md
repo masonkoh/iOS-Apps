@@ -6,7 +6,7 @@
 
 ### iOS
 |Name|Description|Note|
-|:----:|:----:|:----:|
+|:-------:|:----:|:----:|
 memoApp|iOS productive app||
 |gesture_swipe_tap_intro|gesture portfolio (temp)||
 
