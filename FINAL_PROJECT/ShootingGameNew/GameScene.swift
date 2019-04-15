@@ -27,6 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var starfield:SKEmitterNode!
     var player:SKSpriteNode!
+//    var viewController: GameViewController! // mknote temp
     
     var scoreLabel:SKLabelNode!
     var score:Int = 0 {
@@ -34,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             scoreLabel.text = "Score: \(score)"
         }
     }
+    var pauseScreen: SKSpriteNode!
     
     var gameTimer:Timer!
     var bulletTimer:Timer!
@@ -42,6 +44,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let alienCategory:UInt32 = 0x1 << 1
     let bulletCategory:UInt32 = 0x1 << 0
     let playerCategory: UInt32 = 0x1 << 2
+    
+    
     
     override func didMove(to view: SKView) {
         
@@ -64,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         starfield.zPosition = -1
         
         player = SKSpriteNode(imageNamed: "spaceship")
-        player.position = CGPoint(x: 0, y: -self.size.height/2.5)
+        player.position = CGPoint(x: 0, y: (-self.size.height/3))
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody?.isDynamic = true
         player.physicsBody?.affectedByGravity = false
@@ -86,10 +90,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(scoreLabel)
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+        pauseScreen = childNode(withName: "pauseScreen") as! SKSpriteNode
+        pauseScreen.scale(to: CGSize(width: size.width, height: size.height))
+        pauseScreen.isHidden = true
         
-        bulletTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(fireBullets), userInfo: nil, repeats: true)
+        startTimers()
         
+        let recognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
+        recognizer.location(in: self.view)
+        self.view?.addGestureRecognizer(recognizer)
+        
+    }
+    
+    func startTimers() {
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.50, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+        bulletTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireBullets), userInfo: nil, repeats: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -100,16 +115,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let location = touch?.location(in: self)
         {
             let theNodes = nodes(at: location)
+            pauseScreen.isHidden = true
+            //unPause()
             for node in theNodes
             {
                 if node.name == "play"
                 {
+                    
                     score = 0
                     node.removeFromParent()
                     scene?.isPaused = false
                     gameTimer = Timer.scheduledTimer(timeInterval: 0.50, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
                     
-                    bulletTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireBullets), userInfo: nil, repeats: true)
+                    bulletTimer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(fireBullets), userInfo: nil, repeats: true)
+                    
+                    
                 }
             }
         }
@@ -232,6 +252,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         actionArray.append(SKAction.removeFromParent())
         
         bullet.run(SKAction.sequence(actionArray))
+    }
+    
+    @IBAction func handlePinch(recognizer : UIPinchGestureRecognizer) {
+        print("The scale of the transform", recognizer.scale)
+        if(recognizer.scale <= 1){
+            pause()
+        }
+        else if (recognizer.scale > 1){
+            unPause()
+        }
+        //recognizer.scale = 1
+    }
+    
+    func pause(){
+        for node in self.children {
+            node.isPaused = true
+            pauseScreen.isHidden = false
+            if(bulletTimer.isValid){
+                bulletTimer.invalidate()
+            }
+            if(gameTimer.isValid){
+                gameTimer.invalidate()
+            }
+        }
+    }
+    
+    func unPause(){
+        for node in self.children {
+            node.isPaused = false
+            pauseScreen.isHidden = true
+            if(!bulletTimer.isValid && !gameTimer.isValid){
+                startTimers()
+            }
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
