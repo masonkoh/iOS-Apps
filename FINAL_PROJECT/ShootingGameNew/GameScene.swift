@@ -6,6 +6,12 @@
 //  Copyright © 2019 Fenil Shah. All rights reserved.
 //
 
+/*
+ image source: https://www.google.com/imgres?imgurl=http%3A%2F%2Ffc02.deviantart.net%2Ffs71%2Ff%2F2013%2F164%2F8%2Fd%2Fvh3txd_by_turcuman-d68usui.png&imgrefurl=https%3A%2F%2Fwww.picsunday.com%2Fp%2FTop-of-a-Pirate-Ship.html&docid=WgUaJB_PZv04EM&tbnid=HdYxjuG1YJWseM%3A&vet=10ahUKEwjY6ubl2NLhAhUOjq0KHRQmBZ0QMwgpKAAwAA..i&w=233&h=446&safe=off&client=safari&bih=857&biw=1536&q=pirate%20png%20top%20view&ved=0ahUKEwjY6ubl2NLhAhUOjq0KHRQmBZ0QMwgpKAAwAA&iact=mrc&uact=8
+ 
+ https://elderscrolls.fandom.com/wiki/Dragons_(Skyrim)
+ */
+
 import SpriteKit
 import CoreMotion
 import GameplayKit
@@ -25,12 +31,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var gameTimer:Timer!
     var bulletTimer:Timer!
-    var possibleAliens = ["alien1", "alien2"]
+    var possibleAliens = ["alien1", "alien2", "alien3"]
     
     let alienCategory:UInt32 = 0x1 << 1
     let bulletCategory:UInt32 = 0x1 << 0
     
     override func didMove(to view: SKView) {
+        
+        let background = SKSpriteNode(imageNamed: "background")
+        background.position = CGPoint(x: 0, y: 0)
+        background.zPosition = -2
+        addChild(background)
 
         starfield = SKEmitterNode(fileNamed: "Starfield")
         starfield.position = CGPoint(x: 0, y: 1472)
@@ -40,7 +51,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         starfield.zPosition = -1
         
         player = SKSpriteNode(imageNamed: "spaceship")
-        print(size.width)
         player.position = CGPoint(x: 0, y: -self.size.height/2.5)
 
         self.addChild(player)
@@ -57,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(scoreLabel)
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.50, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
         
         bulletTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(fireBullets), userInfo: nil, repeats: true)
         
@@ -99,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion.position = alienNode.position
         self.addChild(explosion)
         
-        // self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
+         self.run(SKAction.playSoundFileNamed("explosion", waitForCompletion: false))
         
         torpedoNode.removeFromParent()
         alienNode.removeFromParent()
@@ -118,10 +128,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         possibleAliens = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleAliens) as! [String]
         
         let alien = SKSpriteNode(imageNamed: possibleAliens[0])
-        let min = self.size.width / 8
-        let max = self.size.width - 20
-        let point = UInt32(max-min)
-        alien.position = CGPoint(x : CGFloat(arc4random_uniform(point)), y: self.size.height)
+//        let min = self.size.width / 8
+//        let max = self.size.width - 20
+//        let point = UInt32(max-min)
+//        alien.position = CGPoint(x : CGFloat(arc4random_uniform(point)), y: self.size.height)
+        alien.size = CGSize(width: 100, height: 100)
+        let maxY = size.width / 2 - alien.size.width / 2
+        let minY = -size.width / 2 + alien.size.width / 2
+        let range = maxY - minY
+        let coinY = maxY - CGFloat(arc4random_uniform(UInt32(range)))
+        alien.position = CGPoint(x: coinY + 30, y: (size.height / 2 + alien.size.height / 2) - 30)
         
         let action = SKAction.moveTo(y: -(self.size.height / 2), duration: 3.0)
         alien.run(SKAction.repeatForever(action))
@@ -153,7 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc func fireBullets() {
-        //self.run(SKAction.playSoundFileNamed("torpedo.mp3", waitForCompletion: false))
+        self.run(SKAction.playSoundFileNamed("torpedo", waitForCompletion: false))
         
         let bullet = SKSpriteNode(imageNamed: "bullet")
         bullet.position = player.position

@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "bokeh.png",
       "scale" : "1x"
     },
     {
@@ -10,7 +11,6 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "d4l6dxy-c3d78543-284c-4ce5-9c2a-1e153394fca5.png",
       "scale" : "3x"
     }
   ],
