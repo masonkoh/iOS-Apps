@@ -20,6 +20,7 @@
 import SpriteKit
 import CoreMotion
 import GameplayKit
+import CoreData
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -36,10 +37,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var gameTimer:Timer!
     var bulletTimer:Timer!
-    var possibleAliens = ["alien1", "alien2", "alien3"]
+    var possibleAliens = ["alien1", "alien2", "alien3", "alien4", "alien5"]
     
     let alienCategory:UInt32 = 0x1 << 1
     let bulletCategory:UInt32 = 0x1 << 0
+    let playerCategory: UInt32 = 0x1 << 2
     
     override func didMove(to view: SKView) {
         
@@ -50,6 +52,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let backgroundSound = SKAudioNode(fileNamed: "bgm")
         self.addChild(backgroundSound)
+        
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        self.physicsWorld.contactDelegate = self
 
         starfield = SKEmitterNode(fileNamed: "Starfield")
         starfield.position = CGPoint(x: 0, y: 1472)
@@ -60,11 +65,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player = SKSpriteNode(imageNamed: "spaceship")
         player.position = CGPoint(x: 0, y: -self.size.height/2.5)
+        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
+        player.physicsBody?.isDynamic = true
+        player.physicsBody?.affectedByGravity = false
+        player.physicsBody?.mass = 1000000
+        player.physicsBody?.categoryBitMask = playerCategory
+        starfield.physicsBody?.contactTestBitMask = alienCategory
+        //starfield.physicsBody?.collisionBitMask = 0
 
         self.addChild(player)
         
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        self.physicsWorld.contactDelegate = self
+
         
         scoreLabel = SKLabelNode(text: "Score: 0")
         scoreLabel.position = CGPoint(x: (-size.width/2) + 100, y: self.frame.size.height/2 - 35)
@@ -75,13 +86,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(scoreLabel)
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
         
         bulletTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(fireBullets), userInfo: nil, repeats: true)
         
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for touch: AnyObject in touches{
+//            player.position.x = touch.location(in: self).x
+//        }
+        let touch = touches.first
+        if let location = touch?.location(in: self)
+        {
+            let theNodes = nodes(at: location)
+            for node in theNodes
+            {
+                if node.name == "play"
+                {
+                    score = 0
+                    node.removeFromParent()
+                    scene?.isPaused = false
+                    gameTimer = Timer.scheduledTimer(timeInterval: 0.50, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+                    
+                    bulletTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireBullets), userInfo: nil, repeats: true)
+                }
+            }
+        }
         for touch: AnyObject in touches{
             player.position.x = touch.location(in: self).x
         }
@@ -107,6 +138,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if (firstBody.categoryBitMask & bulletCategory) != 0 && (secondBody.categoryBitMask & alienCategory) != 0 {
             bulletCollision(torpedoNode: firstBody.node as! SKSpriteNode, alienNode: secondBody.node as! SKSpriteNode)
+        }
+        if contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == alienCategory {
+            gameOver()
         }
         
     }
@@ -157,7 +191,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         alien.physicsBody?.isDynamic = true
         
         alien.physicsBody?.categoryBitMask = alienCategory
-        alien.physicsBody?.contactTestBitMask = bulletCategory
+        alien.physicsBody?.contactTestBitMask = bulletCategory | playerCategory
         alien.physicsBody?.collisionBitMask = 0
         
         self.addChild(alien)
@@ -202,5 +236,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         
+    }
+    func gameOver() {
+        
+        scene?.isPaused = true
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                if(data.value(forKey: "score") as! Int32 == -1)
+                {
+                    data.setValue(score, forKey: "score")
+                    
+                    do{
+                        try context.save()
+                    }
+                    catch {
+                        print("Error!!!")
+                    }
+                    
+                }
+                else
+                {
+                    print("Error")
+                }
+            }
+            
+        } catch {
+            
+            print("Error")
+        }
+        bulletTimer?.invalidate()
+        gameTimer?.invalidate()
+        
+        let playButton = SKSpriteNode(imageNamed: "play")
+        playButton.position = CGPoint(x: 0, y: -200)
+        playButton.name = "play"
+        playButton.zPosition = 1
+        addChild(playButton)
     }
 }
