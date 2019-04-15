@@ -11,6 +11,11 @@
  
  https://elderscrolls.fandom.com/wiki/Dragons_(Skyrim)
  */
+/*
+ sound source:
+    Background music: written by Youngmin Mason Ko
+    explosion: https://www.freesoundeffects.com/free-sounds/bomb-10076/
+ */
 
 import SpriteKit
 import CoreMotion
@@ -42,6 +47,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.position = CGPoint(x: 0, y: 0)
         background.zPosition = -2
         addChild(background)
+        
+        let backgroundSound = SKAudioNode(fileNamed: "bgm")
+        self.addChild(backgroundSound)
 
         starfield = SKEmitterNode(fileNamed: "Starfield")
         starfield.position = CGPoint(x: 0, y: 1472)
@@ -67,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(scoreLabel)
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
         
         bulletTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(fireBullets), userInfo: nil, repeats: true)
         
@@ -105,12 +113,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func bulletCollision (torpedoNode:SKSpriteNode, alienNode:SKSpriteNode) {
         
-        let explosion = SKEmitterNode(fileNamed: "Explosion")!
+        let explosion = SKEmitterNode(fileNamed: "explosion")!
         explosion.position = alienNode.position
         self.addChild(explosion)
         
-         self.run(SKAction.playSoundFileNamed("explosion", waitForCompletion: false))
-        
+        self.run(SKAction.playSoundFileNamed("explosion", waitForCompletion: false))
         torpedoNode.removeFromParent()
         alienNode.removeFromParent()
         
@@ -159,17 +166,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         var actionArray = [SKAction]()
         
-        
-       //Tsel( actionArray.append(SKAction.move(to: CGPoint(x: position, y: -alien.size.height*20), duration: animationDuration))
-      //  actionArray.append(SKAction.removeFromParent())
-        
-      //  alien.run(SKAction.sequence(actionArray))
-        
-        
+        // keeping node number same. remove corpse
+        actionArray.append(SKAction.move(to: CGPoint(x: coinY + 30, y: -alien.size.height*20), duration: animationDuration))
+        actionArray.append(SKAction.removeFromParent())
+        alien.run(SKAction.sequence(actionArray))
     }
     
     @objc func fireBullets() {
-        self.run(SKAction.playSoundFileNamed("torpedo", waitForCompletion: false))
+//        self.run(SKAction.playSoundFileNamed("torpedo", waitForCompletion: false))
         
         let bullet = SKSpriteNode(imageNamed: "bullet")
         bullet.position = player.position
