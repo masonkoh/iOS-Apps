@@ -59,12 +59,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     @objc func addAlien(){
         possibleAliens = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleAliens) as! [String]
         let alien = SKSpriteNode(imageNamed: possibleAliens[0])
-        let randomAlienPosition = GKRandomDistribution(lowestValue: 0, highestValue: 414)
+        let randomAlienPosition = GKRandomDistribution(lowestValue: -375, highestValue: 375)
         let position = CGFloat(randomAlienPosition.nextInt())
         alien.position = CGPoint(x: position, y: frame.size.height + alien.size.height)
         alien.physicsBody = SKPhysicsBody(rectangleOf: alien.size)
         alien.physicsBody?.isDynamic = true
+        alien.physicsBody?.categoryBitMask = alienCategory
+        alien.physicsBody?.contactTestBitMask = photonTorpedoCategory
+        alien.physicsBody?.collisionBitMask = 0
         
         addChild(alien)
+        
+        let animationDuration: TimeInterval = 6
+        var actionArray = [SKAction]()
+        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -alien.size.height), duration: animationDuration))
+        print(alien.size.height)
+        actionArray.append(SKAction.removeFromParent())
+        alien.run(SKAction.sequence(actionArray))
     }
 }
