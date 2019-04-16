@@ -18,6 +18,7 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     var highScores: [(score: Int32, name: String)] = []
     var finalHighScore: [(score: Int32, name: String)] = []
     
+    
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var nameText: UITextField!
@@ -111,8 +112,8 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func printUsers()
     {
-        highScores.removeAll()
-        finalHighScore.removeAll()
+//        highScores.removeAll()
+//        finalHighScore.removeAll()
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
