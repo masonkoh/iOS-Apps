@@ -25,6 +25,8 @@ import CoreData
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+//    @IBOutlet var mainPage: SKView! // mknote temp
+//    var mainPageScene: SKScene! // mknote temp
     var starfield:SKEmitterNode!
     var player:SKSpriteNode!
 //    var viewController: GameViewController! // mknote temp
@@ -48,7 +50,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func didMove(to view: SKView) {
-        
+
         let background = SKSpriteNode(imageNamed: "background")
         background.position = CGPoint(x: 0, y: 0)
         background.zPosition = -2
@@ -82,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         
         scoreLabel = SKLabelNode(text: "Score: 0")
-        scoreLabel.position = CGPoint(x: (-size.width/2) + 100, y: self.frame.size.height/2 - 35)
+        scoreLabel.position = CGPoint(x: (-size.width/2) + 200, y: self.frame.size.height/2 - 100)
         scoreLabel.fontName = "AmericanTypewriter-Bold"
         scoreLabel.fontSize = 36
         scoreLabel.fontColor = UIColor.white
@@ -121,6 +123,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
                 if node.name == "play"
                 {
+//                     self.scene?.view?.presentScene(mainPageScene) // mknote temp
                     
                     score = 0
                     node.removeFromParent()
