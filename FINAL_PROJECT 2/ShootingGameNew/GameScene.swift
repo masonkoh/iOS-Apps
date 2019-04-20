@@ -3,7 +3,7 @@
 //  ShootingGameNew
 //
 //  Created by Fenil Shah on 2019-04-07.
-//  Copyright © 2019 Fenil Shah. All rights reserved.
+//  Copyright © 2019 Pratik Ashokbhai Panchani, Youngmin Ko, Arnav Bansal. All rights reserved.
 //
 
 /*
@@ -312,7 +312,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         try context.save()
                     }
                     catch {
-                        print("Error!!!")
+                        print("E from gameOver()")
                     }
                     
                 }

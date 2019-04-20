@@ -1,0 +1,33 @@
+This game is shooting game.
+The player's character is a boat firing bullets. 
+On the top of screen, enemy (enemy boats and dragons) keep coming to player's side.
+If your bullet hits enemy, they will be exploded and you gain 5 points.
+If your boat contacts with enemy, game ends. However, you will see 'replay' button when game ends. If you choose to replay, you will loose all scores and start with score 0. If you end the app, your game information will be saved.
+If you pinch zoom in, you can pause the game.
+Once you zoom out, the game will resume.
+
+On the main page (first view of the app), you can see rank board. Those are top 10 records of the game. The format is (ID : score). You set up your name before start the game. After  gameover, your record will be automatically saved and if it's qualified to be in top 10 records, you can see your ID on the rank board.
+
+
+
+
+I explained what's happening on video below.
+
+0:17
+- you see the previous records on the ranking board
+- the format is (ID : score)
+- showing top 10 players
+0:23
+- My ID for this time will be ‘demoD’.
+- click ‘Play!’ and game starts
+0:52
+- player’s character contacts enemy character and game stops!
+- restart the game to go check the rank
+1:07
+- the record of ‘demoD’ is now on top 10 rank board!
+1:13
+- now this time my ID is ‘demoE’
+1:20
+- I intentionally contacts with enemy boat and game stops
+- but this time I click ‘restart’ button and the game starts again with score 0
+- after that, I contacts few more time to demonstrate the game stops properly if my character contacts enemy character

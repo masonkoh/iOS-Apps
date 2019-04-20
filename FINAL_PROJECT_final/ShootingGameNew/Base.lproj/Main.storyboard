@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="VpV-ka-r5M">
+            <objects>
+                <viewController storyboardIdentifier="gamePage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WBj-n8-EcF" customClass="GameViewController" customModule="ShootingGameNew" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="gamePage" id="AXh-2R-Vws" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
+                        <viewLayoutGuide key="safeArea" id="SON-NO-a2a"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fdT-Ha-zbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2417" y="-280"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController storyboardIdentifier="mainPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="GameViewController" customModule="ShootingGameNew" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="mainScreen" id="3se-qz-xqx" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fx7-rl-z6y">
+                                <rect key="frame" x="30" y="428" width="274" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="Of6-k5-zFg"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRl-wK-x2z">
+                                <rect key="frame" x="334" y="428" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="fNP-Xl-Yz9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Play!"/>
+                                <connections>
+                                    <action selector="newGameAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="WDU-dP-Z4e"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k52-hw-lph">
+                                <rect key="frame" x="10" y="478" width="394" height="364"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="364" id="bdT-iA-YJh"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="35V-gN-oFl">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="35V-gN-oFl" id="UaH-NZ-7Ir">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BV1-FR-VrT" id="LOT-MH-Cd0"/>
+                                    <outlet property="delegate" destination="BV1-FR-VrT" id="Gp8-cZ-gR4"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dragon Battleship" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJe-Zr-gfI">
+                                <rect key="frame" x="20" y="44" width="252" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="main">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="k52-hw-lph" secondAttribute="trailing" constant="10" id="1xt-u5-rRZ"/>
+                            <constraint firstItem="k52-hw-lph" firstAttribute="top" secondItem="bRl-wK-x2z" secondAttribute="bottom" constant="20" id="3Og-cb-MW1"/>
+                            <constraint firstItem="Fx7-rl-z6y" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="30" id="faZ-Wy-lS6"/>
+                            <constraint firstItem="k52-hw-lph" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="10" id="kdb-PR-NHh"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="bRl-wK-x2z" secondAttribute="trailing" constant="30" id="nFf-SU-G4l"/>
+                            <constraint firstItem="bRl-wK-x2z" firstAttribute="leading" secondItem="Fx7-rl-z6y" secondAttribute="trailing" constant="30" id="o15-gR-61e"/>
+                            <constraint firstItem="k52-hw-lph" firstAttribute="top" secondItem="Fx7-rl-z6y" secondAttribute="bottom" constant="20" id="qYN-GM-45d"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="k52-hw-lph" secondAttribute="bottom" constant="20" id="x4X-fj-i9N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                    </view>
+                    <connections>
+                        <outlet property="lbl_title" destination="QJe-Zr-gfI" id="JmY-M5-xjc"/>
+                        <outlet property="nameText" destination="Fx7-rl-z6y" id="dsC-nW-7VH"/>
+                        <outlet property="newGameBtn" destination="bRl-wK-x2z" id="OjO-LJ-vOt"/>
+                        <outlet property="table" destination="k52-hw-lph" id="kPb-hh-mzh"/>
+                        <segue destination="WBj-n8-EcF" kind="presentation" identifier="viewSwitch" id="ZfK-bY-7Gk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1356.521739130435" y="-279.91071428571428"/>
+        </scene>
+    </scenes>
+</document>

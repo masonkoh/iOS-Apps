@@ -136,10 +136,12 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
                 var i = 0
                 while (i < 10)
                 {
+//                    highScores.removeAll()
+//                    finalHighScore.removeAll()
                     finalHighScore.insert(highScores[i], at: i)
                     i+=1
                 }
-                
+                1
                 
                 print(finalHighScore.capacity)
             }
