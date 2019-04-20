@@ -18,6 +18,9 @@ Spaceship Gun Fight|2D Game using SprikeKit||
 |Breakout|2D Game using SprikeKit||
 ColorSwitch|2D Game using SprikeKit||
 |GuessMyPick|2D Game using SprikeKit||
+FINAL_PROJECT|2D Game using SprikeKit|will be organized|
+|FINAL_PROJECT 2|2D Game using SprikeKit|will be organized|
+FINAL_PROJECT 2-2|2D Game using SprikeKit|will be organized|
 
   
 ### Apple Watch Apps (watchOS)
